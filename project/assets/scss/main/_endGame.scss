@@ -1,0 +1,151 @@
+@import '../colors';
+
+.check-mate,
+.end-game {
+    display: none;
+}
+
+.showtitle-final, 
+.end-game-final {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+    background-color: rgba(14, 13, 13, 0.8);
+
+    #end-game-icon {
+        position: absolute;
+
+        top: 8%;
+        left: 82%;
+
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+
+        z-index: 4;
+        
+        color: rgb(250, 84, 84);
+        transform: translate(-57%, -50%);
+
+        &:hover {
+            color: rgb(255, 15, 15);
+        }
+    }
+
+    .game-end, .play-again {
+
+        width: 63%;
+        height: auto;
+
+        top: 50%;
+        left: 57%;
+
+        z-index: 3;
+
+        transform: translate(-57%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+
+        border-radius: 9px;
+        gap: 2.7rem;
+
+        .title-end-game {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 30px;
+
+            h2 {
+                font-family: $bs-font-sans-serif;
+                font-size: clamp(1.6rem, 1.4rem, .9rem); 
+                color: white;
+            }
+
+            p {
+                color: #cec7c0;
+                font-family: $bs-font-sans-serif;
+                font-size: clamp(1.1rem, 1rem, .7rem); 
+                font-weight: 700;
+            }
+
+            #icon-end {
+                width: 50px;
+                height: 50px;
+                color: rgb(33, 209, 33);
+            }
+
+            .update-player-status {
+                h3 {
+                    text-align: center;
+                    color: #e0e0e0;
+                    font-size: clamp(1.2rem, 1.1rem, .8rem); 
+                    font-family: $bs-font-sans-serif;
+                }
+            }
+        }
+    
+        .btn-game-end {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+
+            gap: 20px;
+
+            .rematch-game-end {
+                background-color:  #312e2b;
+            }
+            
+            .new-game-end {
+                background-color: #3dff2c;
+            } 
+            
+            .rematch-game-end,
+            .new-game-end {
+                width: 100%;
+                height: 2.6rem;
+                cursor: pointer;
+                appearance: none;
+                border-style: none;
+                border-radius: 5px;
+                color: white;
+                transition: 0.3s ease-in-out all;
+            }
+            
+            .rematch-game-end:hover {
+                color: white;
+                background-color: #423e39;
+            }
+            
+            .new-game-end:hover {
+                color: white;
+                background-color: #56fc46;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+            & {
+                height: auto;
+                gap: 0;
+
+                .title-end-game { gap: 0; }
+                
+            }
+        }
+
+        @media (max-width: 500px) {
+            & {
+                height: auto;
+                gap: 0;
+
+                .title-end-game { gap: 0; }
+            }
+        }
+    }
+}

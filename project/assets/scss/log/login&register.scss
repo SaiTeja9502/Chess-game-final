@@ -1,0 +1,276 @@
+@import '../colors';
+
+.login-page-container, 
+.register-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+}
+
+/******************************************
+ *                                        *
+ *      Login & Register containers       *
+ *                                        *
+ ******************************************/
+
+.form-contrainer {
+    display: flex;
+    flex-direction: column;
+    
+    width: 43%;
+    padding: 10px;
+    height: auto;
+    
+    border-radius: 9px;
+    color: $bs-color-white;
+    font-family: $bs-font-sans-serif;
+    background-color: #141516;
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 10%;
+        height: 0;
+        background-color: $bs-red-dark;
+        transition: height 1s;
+    }
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+        width: 10%;
+        height: 0;
+        background-color: $bs-gold;
+        transition: height 1s;
+    }
+
+    &::before {
+        z-index: -1;
+        transform: skewX(45deg);
+        transform-origin: bottom left;
+    }
+
+    &::after {
+        z-index: -1;
+        transform: skewX(45deg);
+        transform-origin: top right;
+    }
+
+    &::before, &::after {
+        z-index: -1;
+        height: 100%;
+    }
+    
+    @include SamllSizesIntroSection;
+
+    @media (max-width: 500px) {
+        & { width: 80%; }
+    }
+
+    .form-title {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-family: $bs-font-monospace;
+    }
+
+    .error-message {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-family: $bs-font-monospace;
+        color: rgb(245, 31, 31);
+    }
+
+    .signup-link {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-family: $bs-font-monospace;
+
+        a {
+            text-decoration: none;
+            color: #328be4;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .demo-link {
+        text-align: center;
+        font-family: $bs-font-monospace;
+
+        text-decoration: none;
+        color: #328be4;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .avatar-upload {
+        
+        .avatar-success {
+            color: rgb(10, 197, 10);
+            text-align: center;
+            margin: 2rem;
+            font-family: $bs-font-monospace;
+        }
+
+        .avatar-error {
+            color: rgb(212, 19, 12);
+            text-align: center;
+            margin: 2rem;
+            font-family: $bs-font-monospace;
+        }
+    }
+
+    .login-page-form, 
+    .register-page-container-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+
+        .avatar-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 78%;
+
+            padding-top: 14px;
+            padding-bottom: 14px;
+            padding-left: 6px;
+            padding-right: 6px;
+
+            border-radius: 6px;
+            border-width: 1px;
+            border-style: dashed;
+            border-color: $bs-color-white;
+            background-color: transparent;
+
+            .avatar-icon {
+                display: flex;
+                width: 50px;
+                height: 50px;
+                color: $bs-color-white;
+            }
+
+            .profile-photo {
+                font-size: 17px;
+                color: $bs-color-white;
+            }
+
+            .file-type {
+                cursor: pointer;
+                border-radius: 6px;
+                border: 1px solid rgba(192, 192, 192, 0.432);
+            }
+        }
+
+        label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            width: 80%;
+            height: auto;
+            border-radius: 7px;
+            border: 1px solid rgba(192, 192, 192, 0.432);
+
+            .icon {
+                padding: 5px;
+            }
+            
+            @for $i from 1 through 3 {
+
+                input:nth-child(#{$i}) {
+                    padding: 6px 4px;
+    
+                    width: 95%;
+                    height: 25px;
+    
+                    border-top-right-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    outline: none;
+    
+                    color: $bs-color-white;
+                    background-color: #141516;
+                    border: none;
+                    font-size: 15px;
+    
+                    &::placeholder {
+                        color: $bs-gray-dark;
+                    }
+                }
+            }
+        }
+
+        .register-page-form-button,
+        .login-page-form-button {
+            @include buttonStyle;
+            margin: 1rem 0;
+            border: 1px solid rgba(192, 192, 192, 0.301);
+            &:focus {
+                border: 1px solid rgba(255, 252, 252, 0.637);
+            }
+        }
+    }
+
+    .message-error {
+        display: block;
+    }
+
+    .hide-message {
+        display: none;
+    }
+
+    .login {
+        width: 82%;
+        height: 40px;
+        
+        outline: none;
+        border-style: none;
+        cursor: pointer;
+
+        border-radius: 8px;
+        color: $bs-color-white;
+        background-color: #f8f8f838;
+
+        margin: 1rem 0;
+        
+        cursor: not-allowed;
+        opacity: 30;
+    }
+
+    .buttons-social-providers {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        margin: .5rem 0;
+        gap: 1rem;
+        
+        button {
+            @include buttonStyle;
+            border: 1px solid rgba(192, 192, 192, 0.301);
+
+            &:focus {
+                border: 1px solid rgba(255, 252, 252, 0.637);
+            }
+        }
+    }
+}
